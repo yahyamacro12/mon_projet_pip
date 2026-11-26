@@ -9,8 +9,7 @@ class user(AbstractUser):
 class doctor(user):
     phone=models.CharField(max_length=8)
     licence_number=models.CharField(max_length=6,unique=True)
-    specialties = models.ManyToManyField(Specialty, related_name='doctors', blank=True,nullable=True)
-
+    specialities= models.ManyToManyField('Speciality', related_name='doctors',null=True,blank=True)
 class patient(user):
     phone=models.CharField(max_length=8)
     birth_date=models.DateField()
